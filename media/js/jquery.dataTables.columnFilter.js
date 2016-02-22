@@ -95,7 +95,7 @@
             //return oTable.fnSettings().oApi._fnColumnIndexToVisible(oTable.fnSettings(), iColumnIndex);
         }
 
-        function fnCreateInput(oTable, regex, smart, bIsNumber, iFilterLength, iMaxLenght) {
+        function fnCreateInput(oTable, regex, smart, bIsNumber, iFilterLength, iMaxLength) {
             var sCSSClass = "text_filter form-control";
             if (bIsNumber)
                 sCSSClass = "number_filter form-control";
@@ -113,8 +113,8 @@
             }
 
             var input = $('<input type="text" class="' + search_init + sCSSClass + '" value="' + inputvalue + '" rel="' + i + '"/>');
-            if (iMaxLenght != undefined && iMaxLenght != -1) {
-                input.attr('maxlength', iMaxLenght);
+            if (iMaxLength != undefined && iMaxLength != -1) {
+                input.attr('maxlength', iMaxLength);
             }
             th.html(input);
             if (bIsNumber)
@@ -718,7 +718,7 @@
                 var aoColumn = { type: "text",
                     bRegex: false,
                     bSmart: true,
-                    iMaxLenght: -1,
+                    iMaxLength: -1,
                     iFilterLength: 0
                 };
                 if (properties.aoColumns != null) {
@@ -747,7 +747,7 @@
                         case "null":
                             break;
                         case "number":
-                            fnCreateInput(oTable, true, false, true, aoColumn.iFilterLength, aoColumn.iMaxLenght);
+                            fnCreateInput(oTable, true, false, true, aoColumn.iFilterLength, aoColumn.iMaxLength);
                             break;
                         case "select":
                             if (aoColumn.bRegex != true)
@@ -771,7 +771,7 @@
                         default:
                             bRegex = (aoColumn.bRegex == null ? false : aoColumn.bRegex);
                             bSmart = (aoColumn.bSmart == null ? false : aoColumn.bSmart);
-                            fnCreateInput(oTable, bRegex, bSmart, false, aoColumn.iFilterLength, aoColumn.iMaxLenght);
+                            fnCreateInput(oTable, bRegex, bSmart, false, aoColumn.iFilterLength, aoColumn.iMaxLength);
                             break;
 
                     }
